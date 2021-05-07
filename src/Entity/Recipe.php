@@ -23,9 +23,21 @@ class Recipe
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
-    private $ingredients;
+    private $description;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $recipeIngredient = [];
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $recipeInstructions = [];
+
+
 
     /**
      * @ORM\Column(type="string", length=20)
@@ -49,14 +61,38 @@ class Recipe
         return $this;
     }
 
-    public function getIngredients(): ?string
+    public function getDescription(): ?string
     {
-        return $this->ingredients;
+        return $this->description;
     }
 
-    public function setIngredients(string $ingredients): self
+    public function setDescription(string $description): self
     {
-        $this->ingredients = $ingredients;
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getRecipeIngredient(): ?array
+    {
+        return $this->recipeIngredient;
+    }
+
+    public function setRecipeIngredient(array $recipeIngredient): self
+    {
+        $this->recipeIngredient = $recipeIngredient;
+
+        return $this;
+    }
+
+    public function getRecipeInstructions(): ?array
+    {
+        return $this->recipeInstructions;
+    }
+
+    public function setRecipeInstructions(array $recipeInstructions): self
+    {
+        $this->recipeInstructions = $recipeInstructions;
 
         return $this;
     }

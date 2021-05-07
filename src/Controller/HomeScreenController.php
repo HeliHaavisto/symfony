@@ -22,8 +22,9 @@ class HomeScreenController extends AbstractController
 
         $newRecipe = new Recipe();
         $newRecipe->setName($_GET["name"]);
-        $newRecipe->setIngredients($_GET["ingredients"]);
-        $newRecipe->setDifficulty($_GET["difficulty"]);
+        $newRecipe->setDescription($_GET["description"]);
+        $newRecipe->setRecipeIngredient($_GET["recipeIngredient"]);
+        $newRecipe->setRecipeInstructions($_GET["recipeInstructions"]);
 
 
 
@@ -45,8 +46,9 @@ class HomeScreenController extends AbstractController
         foreach($recipes as $recipe) {
             $response[] = array(
                 'name' =>$recipe->getName(),
-                'ingredients'=>$recipe->getIngredients(),
-                'difficulty'=>$recipe->getDifficulty()
+                'description'=>$recipe->getDescription(),
+                'recipeIngredient'=>$recipe->getRecipeIngredient(),
+                'recipeInstructions'=>$recipe->getRecipeInstructions()
             );
 
         }
@@ -68,8 +70,9 @@ class HomeScreenController extends AbstractController
             return $this->json([
                 'id' => $recipe->getId(),
                 'name' => $recipe->getName(),
-                'ingredients' => $recipe->getIngredients(),
-                'difficulty'=>$recipe->getDifficulty()
+                'description'=>$recipe->getDescription(),
+                'recipeIngredients' => $recipe->getRecipeIngredients(),
+                'recipeInstructions'=>$recipe->getRecipeInstructions()
             ]);
         }
     }
