@@ -65,18 +65,21 @@ class HomeScreenController extends AbstractController
     public function findRecipe($id) {
         $recipe = $this->getDoctrine()->getRepository(Recipe::class)->find($id);
 
+        $response = [];
+
         if (!$recipe) {
             throw $this->createNotFoundException(
                 'No recipe was found with the id: ' . $id
             );
         } else {
-            return $this->json([
-                'id' => $recipe->getId(),
-                'name' => $recipe->getName(),
-                'description'=>$recipe->getDescription(),
-                'recipeIngredients' => $recipe->getRecipeIngredients(),
-                'recipeInstructions'=>$recipe->getRecipeInstructions()
-            ]);
+            return $this->json(
+                $response[] = array(
+                    'name' =>$recipe->getName(),
+                    'description'=>$recipe->getDescription(),
+                    'recipeIngredient'=>$recipe->getRecipeIngredient(),
+                    'recipeInstructions'=>$recipe->getRecipeInstructions()
+                )
+            );
         }
     }
 
