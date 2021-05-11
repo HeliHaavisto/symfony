@@ -26,10 +26,8 @@ class HomeScreenController extends AbstractController
         $newRecipe->setName($data["name"]);
         $newRecipe->setDifficulty("easy");
         $newRecipe->setDescription($data["description"]);
-        //$newRecipe->setRecipeIngredient($data["recipeIngredient"]);
-        $newRecipe->setRecipeIngredient(["test1", "test2", "test3"]);
-        $newRecipe->setRecipeInstructions(["test1", "test2", "test3"]);
-        //$newRecipe->setRecipeInstructions($data["recipeInstructions"]);
+        $newRecipe->setRecipeIngredient($data["recipeIngredient"]);
+        $newRecipe->setRecipeInstructions($data["recipeInstructions"]);
 
 
 
