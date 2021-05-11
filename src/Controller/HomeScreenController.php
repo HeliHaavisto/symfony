@@ -15,7 +15,7 @@ class HomeScreenController extends AbstractController
 
 
     /**
-     * @Route("/recipe/add", name="add_new-recipe")
+     * @Route("/recipe/add", name="add_new-recipe", methods={"POST"})
      */
     public function addRecipe(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
