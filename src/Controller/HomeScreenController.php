@@ -17,14 +17,16 @@ class HomeScreenController extends AbstractController
     /**
      * @Route("/recipe/add", name="add_new-recipe")
      */
-    public function addRecipe() {
+    public function addRecipe(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
 
+        $data= json_decode($request->getContent(), true);
+
         $newRecipe = new Recipe();
-        $newRecipe->setName($_GET["name"]);
-        $newRecipe->setDescription($_GET["description"]);
-        $newRecipe->setRecipeIngredient($_GET["recipeIngredient"]);
-        $newRecipe->setRecipeInstructions($_GET["recipeInstructions"]);
+        $newRecipe->setName($data["name"]);
+        $newRecipe->setDescription($data["description"]);
+        $newRecipe->setRecipeIngredient($data["recipeIngredient"]);
+        $newRecipe->setRecipeInstructions($data["recipeInstructions"]);
 
 
 
