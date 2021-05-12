@@ -48,6 +48,7 @@ class HomeScreenController extends AbstractController
 
         foreach($recipes as $recipe) {
             $response[] = array(
+                'id'=>$recipe->getId(),
                 'name' =>$recipe->getName(),
                 'description'=>$recipe->getDescription(),
                 'recipeIngredient'=>$recipe->getRecipeIngredient(),
@@ -74,6 +75,7 @@ class HomeScreenController extends AbstractController
         } else {
             return $this->json(
                 $response[] = array(
+                    'id'=>$recipe->getId(),
                     'name' =>$recipe->getName(),
                     'description'=>$recipe->getDescription(),
                     'recipeIngredient'=>$recipe->getRecipeIngredient(),
