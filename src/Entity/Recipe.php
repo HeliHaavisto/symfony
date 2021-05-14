@@ -27,6 +27,8 @@ class Recipe
      */
     private $description;
 
+
+
     /**
      * @ORM\Column(type="array")
      */
